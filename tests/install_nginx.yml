@@ -1,15 +1,11 @@
-# ./ansible-nginx/tasks/install_nginx.yml
- 
-- name: NGINX | Installing NGINX repo rpm
-  yum:
-    name: http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
- 
-- name: NGINX | Installing NGINX
-  yum:
-    name: nginx
-    state: latest
- 
-- name: NGINX | Starting NGINX
-  service:
-    name: nginx
-    state: started
+---
+- hosts: localhost
+  tasks:
+    - name: Installs nginx web server
+      apt: pkg=nginx state=installed update_cache=true
+      notify:
+        - start nginx
+
+  handlers:
+    - name: start nginx
+      service: name=nginx state=started
