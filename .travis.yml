@@ -11,4 +11,4 @@ install:
   - pip install ansible==1.9.1
 
 script:
-- ansible-playbook -i tests/inventory run.yml --syntax-check
+- ansible-playbook -i tests/inventory nginx.yml --syntax-check
