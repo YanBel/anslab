@@ -3,4 +3,4 @@
 
 - hosts: nginx
   tasks:
-    - include: 'tasks/install_nginx.yml'
+    - include: 'tests/install_nginx.yml'
