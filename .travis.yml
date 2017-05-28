@@ -11,5 +11,9 @@ install:
   - pip install ansible==1.9.1
 
 script:
+# Role syntax
 - ansible-playbook -i tests/inventory nginx.yml --syntax-check
+# Role idempotence, Second time run
 - ansible-playbook -i tests/inventory nginx.yml --connection=local --sudo
+# Test ngnix 
+- "curl http://localhost/"
